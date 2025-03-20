@@ -1,7 +1,10 @@
-import { Navigator } from '../components/navbar.js';
+import { Navigator } from "../components/navbar.js"
 
-export default function Features() {
-  return (
+export default function page(){
+    return(
+        <>
+        <p>Features Page</p>
         <Navigator/>
-  );
+        </>
+    )
 }
