@@ -1,7 +1,10 @@
-import { Navigator } from '../components/navbar.js';
+import Section from "@/components/section";
 
 export default function Home() {
   return (
-        <Navigator/>
+    <>
+      <Section text="Welcome to Netflix Checker" subtext="Testing" />
+      {/* <Dashboard/> */}
+    </>
   );
 }
