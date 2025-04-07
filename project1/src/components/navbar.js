@@ -39,7 +39,7 @@ export function Navigator() {
   return (
     <nav className="bg-white shadow dark:bg-gray-800 flex justify-center">
       <MainItem
-        name = "Stock"
+        name = "Menu"
         isSelected = {actualPage === "/"}
       />
       <Item
@@ -49,6 +49,10 @@ export function Navigator() {
       <Item
         name = "Reviews"
         isSelected = {actualPage === "/reviews"}
+      />
+      <Item
+        name = "Stock"
+        isSelected = {actualPage === "/stock"}
       />
       <Item
         name = "Credits"

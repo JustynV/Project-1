@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Project1",
+  title: "Netflix Checker",
   description: "My mini implementation",
 };
 
