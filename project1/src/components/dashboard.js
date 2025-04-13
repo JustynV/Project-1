@@ -37,7 +37,7 @@ class App extends Component {
 			]
 		};
 		const containerProps = {
-			width: '800px',
+			width: '1200px',
 			height: '600px',
 
 		};
@@ -53,24 +53,26 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch('WIP')
+		fetch('http://localhost:3000/stocks')
 			.then((response) => {
 				return response.json();
 			})
-			.then((data) => {
-				var dps = [];
-				for (var i = 0; i < data.length; i++) {
-					dps.push({
-						x: data[i].x,
-						y: data[i].y
-					});
-				}
-
-				this.setState({
+            .then((data) => {
+				const dps = data.map((item) => ({
+					x: new Date(item.Datetimes), // full date for charting
+					y: [
+					  parseFloat(item["Open "]),  // fix space and convert to number
+					  parseFloat(item.High),
+					  parseFloat(item.Low),
+					  parseFloat(item.Close),
+					]
+				  }));
+			  
+				  this.setState({
 					isLoaded: true,
 					dataPoints: dps
-				})
-			});
+				  });
+            });
 	}
 
 }
