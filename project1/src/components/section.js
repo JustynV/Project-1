@@ -11,12 +11,12 @@ function Section({text,subtext}) {
     >
       <div className="max-w-screen-xl mx-auto px-4 md:text-center md:px-8">
         <div className="max-w-xl space-y-3 md:mx-auto">
-          <h3 className="text-indigo-600 font-semibold">
-            {subtext}
-          </h3>
           <p className="text-white-800 text-3xl font-semibold sm:text-4xl">
             {text}
           </p>
+          <h3 className="text-indigo-600 font-semibold">
+            {subtext}
+          </h3>
         </div>
       </div>
     </section>

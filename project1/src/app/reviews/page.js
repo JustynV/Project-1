@@ -1,17 +1,27 @@
 import { Card } from "@/components/card.js";
 import Section from "@/components/section";
 
-export default function page(){
+
+export default async function page(){
+    const data = await fetch('http://localhost:5050/reviews')
+    const reviews = await data.json()
     return(
         <>
-      <Section text="Review Page" subtext="Coming Soon" />
-      <div className="grid grid-cols-4 gap-4 p-4">
-        <Card title = {"Hola"} review = "THAT SHI GOATED" rating = "5" reviewer = "John Doe" date = "24/02/2025" />
-        <Card title = {"Hola"} review = "THAT SHI GOATED" rating = "5" reviewer = "John Doe" date = "25/02/2025" />
-        <Card title = {"Hola"} review = "THAT SHI GOATED" rating = "5" reviewer = "John Doe" date = "26/02/2025" />
-        <Card title = {"Hola"} review = "THAT SHI GOATED" rating = "5" reviewer = "John Doe" date = "27/02/2025" />
-        <Card title = {"Hola"} review = "THAT SHI GOATED" rating = "5" reviewer = "John Doe" date = "28/02/2025" />
+      <Section text="Review Page" subtext="Review Checker" />
+    
+      <div className="columns-3 gap-8 m-3">
+      {reviews.map((review) => (
+          <Card
+            key={review._id}
+            title={review.Title}
+            review={review.Content}
+            rating={review.Rate}
+            reviewer={review.Reviewer}
+            date = {review.Date}
+          />
+        ))}
       </div>
+
       </>
     )
 }

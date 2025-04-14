@@ -19,9 +19,10 @@ class App extends Component {
 				text: 'Netflix Stock Price',
 			},
 			axisX: {
-				interval: 1,
+				interval: 3,
 				intervalType: "month",
-				valueFormatString: "MMM"
+				titleFontSize: 10,
+				labelAngle: -30,
 			},
 			axisY: {
 				prefix: "$",
@@ -53,15 +54,15 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:3000/stocks')
+		fetch('http://localhost:5050/stocks')
 			.then((response) => {
 				return response.json();
 			})
             .then((data) => {
 				const dps = data.map((item) => ({
-					x: new Date(item.Datetimes), // full date for charting
+					x: new Date(item.Datetimes), 
 					y: [
-					  parseFloat(item["Open "]),  // fix space and convert to number
+					  parseFloat(item["Open "]), 
 					  parseFloat(item.High),
 					  parseFloat(item.Low),
 					  parseFloat(item.Close),

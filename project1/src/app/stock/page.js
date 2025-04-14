@@ -21,7 +21,7 @@ export default function page(){
 
     return(
     <>  
-      <Section text="Stock Page" subtext="Coming Soon" />
+      <Section text="Stock Page" subtext="Netflix Stock Status Check" />
       <div className="flex justify-center items-center p-10">
         <Dashboard/>
       </div>

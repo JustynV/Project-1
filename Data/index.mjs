@@ -1,8 +1,9 @@
 import express from "express";
 import cors from "cors";
 import stocks from "./routes/stocks.mjs";
+import reviews from "./routes/reviews.mjs";
 
-const PORT = 3000;
+const PORT = 5050;
 const app = express();
 
 app.use(cors());
@@ -10,6 +11,7 @@ app.use(express.json());
 
 // Load the /posts routes
 app.use("/stocks", stocks);
+app.use("/reviews", reviews);
 
 // Global error handling
 app.use((err, _req, res, next) => {
