@@ -15,7 +15,7 @@ app.use("/reviews", reviews);
 
 // Global error handling
 app.use((err, _req, res, next) => {
-  res.status(500).send("Uh oh! An unexpected error occured.")
+  res.status(500).send("Uh oh! An unexpected error occured. "+err)
 })
 
 // start the Express server

@@ -1,14 +1,14 @@
 import { Card } from "@/components/card.js";
 import Section from "@/components/section";
-
+import BigButton from "@/components/bigButton";
 
 export default async function page(){
-    const data = await fetch('http://localhost:5050/reviews')
-    const reviews = await data.json()
+    const query =  await fetch(`http://localhost:5050/reviews?limit=100`)
+    const reviews = await query.json()
+
     return(
         <>
       <Section text="Review Page" subtext="Review Checker" />
-    
       <div className="columns-3 gap-8 m-3">
       {reviews.map((review) => (
           <Card
@@ -21,7 +21,9 @@ export default async function page(){
           />
         ))}
       </div>
-
+      <div className="flex justify-center">
+        <BigButton text={"Load More"}/>
+      </div>
       </>
     )
 }
